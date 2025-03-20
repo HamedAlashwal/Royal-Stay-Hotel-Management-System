@@ -1,7 +1,7 @@
 # Royal Stay Hotel Management System  
 
 ## UML Class Diagram  
-This system helps manage hotel bookings, guest details, payments, and other services. Below is the UML diagram that shows how different parts of the system are connected:  
+This system helps manage hotel bookings, guest details, payments, and other services.
 
 ![UML Diagram](https://github.com/HamedAlashwal/Royal-Stay-Hotel-Management-System/blob/main/Royal%20Stay%20Hotel%20Management%20System%20-%20UML.png)  
 
