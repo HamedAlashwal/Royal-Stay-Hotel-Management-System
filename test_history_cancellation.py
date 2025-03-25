@@ -16,3 +16,17 @@ reservation_history = [booking1, booking2]
 
 for booking in reservation_history:
     print(booking)
+
+
+
+
+print("\n===== Test 2 ======")
+
+booking2.set_status(BookingStatus.CANCELED)
+
+room2.set_availability(True)
+
+print(booking2)  # Expected status: CANCELED
+
+
+print("Room Availability:", room2.is_available())  # Expected-: True
