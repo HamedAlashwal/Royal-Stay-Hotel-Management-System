@@ -44,7 +44,7 @@ class LoyaltyStatus(enum.Enum):
 
 class Guest:
     def __init__(self, guest_id, name, email, phone, loyalty_status):
-        self.__guest_id = guest_id
+        self.__guest_id = guest_idx
         self.__name = name
         self.__email = email
         self.__phone = phone
@@ -70,3 +70,73 @@ class Guest:
 
     def __str__(self):
         return "Guest ID: " + str(self.__guest_id) + ", Name: " + self.__name + ", Email: " + self.__email + ", Phone: " + self.__phone + ", Loyalty Status: " + self.__loyalty_status.value
+
+
+class BookingStatus(enum.Enum):
+    PENDING = "Pending"
+    CONFIRMED = "Confirmed"
+    CANCELED = "Canceled"
+    COMPLETED = "Completed"
+
+class Booking:
+    def __init__(self, booking_id, guest, room, check_in, check_out, status):
+        self.__booking_id = booking_id
+        self.__guest = guest  
+        self.__room = room 
+        self.__check_in = check_in  
+        self.__check_out = check_out  
+        self.__status = status
+
+    def get_booking_id(self):
+        return self.__booking_id
+
+    def get_guest(self):
+        return self.__guest
+
+    def get_room(self):
+        return self.__room
+
+    def get_check_in(self):
+        return self.__check_in
+
+    def get_check_out(self):
+        return self.__check_out
+
+    def get_status(self):
+        return self.__status
+
+    def set_status(self, status):
+        self.__status = status
+
+    def __str__(self):
+        return "Booking ID: " + str(self.__booking_id) + ", Guest: " + self.__guest.get_name() + ", Room: " + str(self.__room.get_room_number()) + ", Check-in: " + str(self.__check_in) + ", Check-out: " + str(self.__check_out) + ", Status: " + self.__status.value
+
+class PaymentStatus(enum.Enum):
+    PENDING = "Pending"
+    PAID = "Paid"
+    FAILED = "Failed"
+
+class Invoice:
+    def __init__(self, invoice_id, booking, total_amount, status=PaymentStatus.PENDING):
+        self.__invoice_id = invoice_id
+        self.__booking = booking 
+        self.__total_amount = total_amount
+        self.__status = status
+
+    def get_invoice_id(self):
+        return self.__invoice_id
+
+    def get_booking(self):
+        return self.__booking
+
+    def get_total_amount(self):
+        return self.__total_amount
+
+    def get_status(self):
+        return self.__status
+
+    def set_status(self, status):
+        self.__status = status
+
+    def __str__(self):
+        return "Invoice ID: " + str(self.__invoice_id) + ", Booking ID: " + str(self.__booking.get_booking_id()) + ", Total: AED " + str(self.__total_amount) + ", Status: " + self.__status.value
