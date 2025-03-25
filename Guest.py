@@ -8,7 +8,7 @@ class LoyaltyStatus(enum.Enum):
 
 class Guest:
     def __init__(self, guest_id, name, email, phone, loyalty_status):
-        self.__guest_id = guest_idx
+        self.__guest_id = guest_id
         self.__name = name
         self.__email = email
         self.__phone = phone
