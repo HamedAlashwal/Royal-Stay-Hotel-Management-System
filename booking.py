@@ -36,5 +36,8 @@ class Booking:
     def set_status(self, status):
         self.__status = status
 
+    def set_check_out(self, check_out):
+        self.__check_out = check_out  
+        
     def __str__(self):
         return "Booking ID: " + str(self.__booking_id) + ", Guest: " + self.__guest.get_name() + ", Room: " + str(self.__room.get_room_number()) + ", Check-in: " + str(self.__check_in) + ", Check-out: " + str(self.__check_out) + ", Status: " + self.__status.value
