@@ -140,3 +140,95 @@ class Invoice:
 
     def __str__(self):
         return "Invoice ID: " + str(self.__invoice_id) + ", Booking ID: " + str(self.__booking.get_booking_id()) + ", Total: AED " + str(self.__total_amount) + ", Status: " + self.__status.value
+
+
+class PaymentMethod(enum.Enum):
+    CREDIT_CARD = "Credit Card"
+    DEBIT_CARD = "Debit Card"
+    MOBILE_WALLET = "Mobile Wallet"
+    CASH = "Cash"
+
+class Payment:
+    def __init__(self, payment_id, invoice, method, amount):
+        self.__payment_id = payment_id
+        self.__invoice = invoice 
+        self.__method = method  
+        self.__amount = amount
+
+    def get_payment_id(self):
+        return self.__payment_id
+
+    def get_invoice(self):
+        return self.__invoice
+
+    def get_method(self):
+        return self.__method
+
+    def get_amount(self):
+        return self.__amount
+
+    def __str__(self):
+        return "Payment ID: " + str(self.__payment_id) + ", Invoice ID: " + str(self.__invoice.get_invoice_id()) + ", Method: " + self.__method.value + ", Amount: AED " + str(self.__amount)
+
+
+
+class LoyaltyProgram:
+    def __init__(self, guest, points):
+        self.__guest = guest  
+        self.__points = points
+
+    def get_guest(self):
+        return self.__guest
+
+    def get_points(self):
+        return self.__points
+
+    def add_points(self, points):
+        self.__points += points
+
+    def redeem_points(self, points):
+        if points <= self.__points:
+            self.__points -= points
+            return True
+        return False
+
+    def __str__(self):
+        return "Guest: " + self.__guest.get_name() + ", Loyalty Points: " + str(self.__points)
+
+class ServiceType(enum.Enum):
+    HOUSEKEEPING = "Housekeeping"
+    ROOM_SERVICE = "Room Service"
+    TRANSPORTATION = "Transportation"
+    LAUNDRY = "Laundry"
+
+
+class RequestStatus(enum.Enum):
+    PENDING = "Pending"
+    IN_PROGRESS = "In Progress"
+    COMPLETED = "Completed"
+
+
+class ServiceRequest:
+    def __init__(self, request_id, guest, service_type, status):
+        self.__request_id = request_id
+        self.__guest = guest  
+        self.__service_type = service_type  
+        self.__status = status 
+
+    def get_request_id(self):
+        return self.__request_id
+
+    def get_guest(self):
+        return self.__guest
+
+    def get_service_type(self):
+        return self.__service_type
+
+    def get_status(self):
+        return self.__status
+
+    def set_status(self, status):
+        self.__status = status
+
+    def __str__(self):
+        return "Request ID: " + str(self.__request_id) + ", Guest: " + self.__guest.get_name() + ", Service: " + self.__service_type.value + ", Status: " + self.__status.value
