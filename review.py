@@ -1,11 +1,11 @@
 import enum
 
 class Rating(enum.Enum):
-    ONE_STAR = 1
-    TWO_STAR = 2
-    THREE_STAR = 3
-    FOUR_STAR = 4
-    FIVE_STAR = 5
+    ONE_STAR = "⭐"
+    TWO_STAR = "⭐⭐"
+    THREE_STAR = "⭐⭐⭐"
+    FOUR_STAR = "⭐⭐⭐⭐"
+    FIVE_STAR = "⭐⭐⭐⭐⭐"
 
 class Review:
     def __init__(self, review_id, guest, rating, comment):
